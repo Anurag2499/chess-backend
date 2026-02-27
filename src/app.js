@@ -7,6 +7,8 @@ const app = express();
 const server = http.createServer(app);
 app.use(express.json());
 
+const PORT = process.env.PORT || 5000;
+
 app.get('/', (req, res) => {
   res.status(200).send('hello world');
 });
@@ -95,6 +97,6 @@ io.on('connection', (socket) => {
   });
 });
 
-server.listen(5000, () => {
+server.listen(PORT, () => {
   console.log('Server running on port 5000 and server got started');
 });
